@@ -33,7 +33,8 @@ class ImageClassifier(nn.Module):
             return self.model(x)
         
         #Instance of the neural network, loss, optimizer
-clf = ImageClassifier().to('cuda')
+clf = ImageClassifier().to('cpu') # If you have cpu
+# clf = ImageClassifier().to('cuda') # if you have gpu
 opt = Adam(clf.parameters(),lr=1e-3)
 loss_fn = nn.CrossEntropyLoss()
 
@@ -43,7 +44,8 @@ if __name__ == "__main__":
     for epoch in range(10): #train for 10 epochs
         for batch in dataset:
             X,y = batch
-            X,y = X.to('cuda'), y.to('cuda')
+            X,y = X.to('cpu'), y.to('cpu') # if cpu is available
+            # X,y = X.to('cuda'), y.to('cuda') # if gpu is available
             yhat = clf(X)
             loss = loss_fn(yhat,y)
 
