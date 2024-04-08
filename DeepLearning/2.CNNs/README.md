@@ -24,3 +24,9 @@
 ### Inheritance from the real world
 
 Input Image -> Primitve Features -> Object Parts -> Object
+
+### CNNs Classification
+
+![](../../files/cnn-class.png)
+
+### CNNs Architecture
